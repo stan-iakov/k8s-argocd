@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
         - name: spring-argocd-app
-          image: stan-iakov/apring-argocd-app
+          image: staniakov/spring-argocd-app:v1
           ports:
             - containerPort: 8080
