@@ -43,6 +43,7 @@ spec:
       http:
         paths:
           - path: /
+            pathType: prefix
             backend:
               service:
                 name: spring-argocd-app
