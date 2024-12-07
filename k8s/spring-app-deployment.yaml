@@ -44,5 +44,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: spring-argocd-app
-              servicePort: http
+              service:
+                name: spring-argocd-app
+                port:
+                  number: 8080
