@@ -6,7 +6,8 @@ spec:
   selector:
     app: spring-argocd-app
   ports:
-    - protocol: "TCP"
+    - name: http
+      protocol: "TCP"
       port: 8080
       targetPort: 8080
       nodePort: 30009
@@ -31,3 +32,17 @@ spec:
           image: staniakov/spring-argocd-app:v1
           ports:
             - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spring-argocd-app
+spec:
+  rules:
+    - host: kubernetes.docker.internal
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: spring-argocd-app
+              servicePort: http
