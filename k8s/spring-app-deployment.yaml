@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: spring-argocd-app
-          image: staniakov/spring-argocd-app:v1
+          image: staniakov/spring-argocd-app:v2
           ports:
             - containerPort: 8080
 ---
@@ -46,10 +46,10 @@ spec:
     - host: kubernetes.docker.internal
       http:
         paths:
-          - path: /
+          - path: "/api/v1"
             pathType: Prefix
             backend:
               service:
                 name: spring-argocd-app
                 port:
-                  number: 80
+                  number: 8080
