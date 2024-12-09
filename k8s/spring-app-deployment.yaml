@@ -52,4 +52,4 @@ spec:
               service:
                 name: spring-argocd-app
                 port:
-                  number: 8080
+                  number: 80
