@@ -34,23 +34,23 @@ spec:
           ports:
             - containerPort: 8080
 ---
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: spring-argocd-app
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-argocd-app
   #annotations:
     #nginx.ingress.kubernetes.io/rewrite-target: /
     #nginx.ingress.kubernetes.io/use-regex: "true"
-#spec:
-#  ingressClassName: nginx
-#  rules:
-#    - host: kubernetes.docker.internal
-#      http:
-#        paths:
-#          - path: "/api/v1/hello"
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: spring-argocd-app
-#                port:
-#                  name: http
+spec:
+  ingressClassName: nginxß
+  rules:
+    - host: kubernetes.docker.internal
+      http:
+        paths:
+          - path: "/api/v1/hello"
+            pathType: Prefix
+            backend:
+              service:
+                name: spring-argocd-app
+                port:
+                  name: http
